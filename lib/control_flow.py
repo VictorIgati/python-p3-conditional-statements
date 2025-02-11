@@ -5,7 +5,12 @@ def admin_login(username, password):
         return "Access granted"
     else:
         return "Access denied"
-    pass
+
+    # Test cases
+print(admin_login("sudo", "12345"))  # Output: "Access denied"
+print(admin_login("admin", "12345"))  # Output: "Access granted"
+print(admin_login("ADMIN", "12345"))  # Output: "Access granted"    
+    
 def hows_the_weather(temp):
     if temp <= 40:
         return "It's brisk out there!"
@@ -15,7 +20,9 @@ def hows_the_weather(temp):
         return "It's too dang hot out there!"
     else:
         return "It's perfect out there!"            
-
+print(hows_the_weather(33))  # Output: "It's brisk out there!"
+print(hows_the_weather(99))  # Output: "It's too dang hot out there!"
+print(hows_the_weather(75))  # Output: "It's perfect out there!"
 def fizzbuzz(num):
     if num % 3 == 0 and num % 5 == 0:
         return "FizzBuzz"
@@ -26,7 +33,7 @@ def fizzbuzz(num):
     else:
         return num
 
-def calculator(num1, num2, op):
+def calculator(op, num1, num2):
     if op =='+':
         return(num1 + num2)
     elif op =='-':
@@ -34,16 +41,19 @@ def calculator(num1, num2, op):
     elif op =='*':
         return(num1 * num2)
     elif op =='/':
-        return int((num1 / num2))
         if num2 ==0:
             return "Error: num2 cannot be divided by  0"
+        else:
+            return(num1 / num2)    
+
     else:
-        print("Invalid operation")
+        print("Invalid operation!")
         return None
                 
 
-print(calculator(1, 1, "+"))
-print(calculator(3, 1, "-"))
-print(calculator(3, 2, "*"))
-print(calculator(4, 2, "/"))
+print(calculator("+", 1, 2))
+print(calculator("-", 1, 2))
+print(calculator("*", 1, 2))
+print(calculator("/", 1, 1))
+print(calculator("/", 1, 0))
 print(calculator("nope", 4,2))
